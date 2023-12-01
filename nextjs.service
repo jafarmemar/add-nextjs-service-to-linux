@@ -9,7 +9,7 @@ RestartSec=10
 WorkingDirectory=/usr/share/nextjs-apps/$APP_FOLDER
 ExecStartPre=/usr/bin/npm install
 ExecStartPre=/usr/bin/npm run build
-ExecStart=/usr/bin/npm start -- -p $PORT ${PORT}
+ExecStart=/usr/bin/npm start -- -p $PORT
 
 [Install]
 WantedBy=multi-user.target
