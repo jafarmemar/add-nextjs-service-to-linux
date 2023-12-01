@@ -1,6 +1,6 @@
 main() {
   if [ $# == 0 ]; then
-    echo "Please add the required parameters!"
+    echo -e "Please add the required parameters!"
   else
     if [ $@ == "--add" ]; then
       read -p "Please set up your port service: " PORT
@@ -8,10 +8,16 @@ main() {
       curl -OLs https://github.com/jafarmemar/add-nextjs-service-to-linux/raw/main/nextjs.service
       PORT=$PORT APP_FOLDER=$APP_FOLDER envsubst <nextjs.service >nextjs-$APP_FOLDER.service
       rm -f nextjs.service
+      mv -f nextjs-$APP_FOLDER.service /etc/systemd/system/nextjs-$APP_FOLDER.service
+      systemctl daemon-reload
+      systemctl enable nextjs-$APP_FOLDER.service
+      systemctl start nextjs-$APP_FOLDER.service
+      echo -e "Service added successfully."
+      echo -e "Next.js folder path: /usr/share/nextjs-apps/$APP_FOLDER"
     elif [ $@ == "--remove" ]; then
-      echo "remove"
+      echo -e "remove"
     else
-      echo "Please specify the correct parameters!"
+      echo -e "Please specify the correct parameters!"
     fi
   fi
 }
