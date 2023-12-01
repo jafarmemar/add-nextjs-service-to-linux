@@ -1,13 +1,18 @@
 main() {
-  if [ $# == 0 ]; then
+  if (($# == 0)); then
     echo "Please add the required parameters!"
   else
-    if [ $@ == "--add" ]; then
+    if (($@ == "--add")); then
       read -p "Please set up your port service:" PORT
+      if (($PORT >= 0 && $PORT <= 65535)); then
+        echo "OK"
+      else
+        read -p "Please set up your port service:" PORT
+      fi
       curl -OLs https://github.com/jafarmemar/add-nextjs-service-to-linux/raw/main/nextjs.service
       PORT=$PORT envsubst <nextjs.service >my-nextjs.service
       rm -f nextjs.service
-    elif [ $@ == "--remove" ]; then
+    elif (($@ == "--remove")); then
       echo "remove"
     else
       echo "Please specify the correct parameters!"
