@@ -16,7 +16,7 @@ main() {
       mkdir -p /usr/share/nextjs-apps/$APP_FOLDER
       echo -e "Next.js folder path: /usr/share/nextjs-apps/$APP_FOLDER"
     elif [ $@ == "--remove" ]; then
-      echo -e "remove"
+      echo -e "Oops, this command hasn't been implemented yet!"
     else
       echo -e "Please specify the correct parameters!"
     fi
