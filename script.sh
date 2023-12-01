@@ -13,6 +13,7 @@ main() {
       systemctl enable nextjs-$APP_FOLDER.service
       systemctl start nextjs-$APP_FOLDER.service
       echo -e "Service added successfully."
+      mkdir -p /usr/share/nextjs-apps/$APP_FOLDER
       echo -e "Next.js folder path: /usr/share/nextjs-apps/$APP_FOLDER"
     elif [ $@ == "--remove" ]; then
       echo -e "remove"
