@@ -23,6 +23,7 @@ main() {
       systemctl stop nextjs-$SERVICE_NAME.service
       rm -f /etc/systemd/system/nextjs-$SERVICE_NAME.service
       systemctl daemon-reload
+      echo -e "Service removed successfully."
     fi
   fi
 }
