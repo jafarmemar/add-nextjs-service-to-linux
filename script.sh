@@ -16,7 +16,7 @@ main() {
       mkdir -p /usr/share/nextjs-apps/$APP_FOLDER
       echo -e "Next.js folder path: /usr/share/nextjs-apps/$APP_FOLDER"
     elif [ $@ == "--remove" ]; then
-      read -p "Please enter your Next.js service name : " SERVICE_NAME
+      read -p "Please enter your Next.js service name: " SERVICE_NAME
       systemctl disable nextjs-$SERVICE_NAME.service
       systemctl stop nextjs-$SERVICE_NAME.service
       rm -f /etc/systemd/system/nextjs-$SERVICE_NAME.service
