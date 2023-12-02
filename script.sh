@@ -22,6 +22,7 @@ main() {
       systemctl disable nextjs-$SERVICE_NAME.service
       systemctl stop nextjs-$SERVICE_NAME.service
       rm -f /etc/systemd/system/nextjs-$SERVICE_NAME.service
+      systemctl daemon-reload
     fi
   fi
 }
