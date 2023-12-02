@@ -1,0 +1,11 @@
+[Unit]
+Description=NextJS Service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/usr/share/nextjs-apps/$APP_FOLDER
+ExecStart=/usr/bin/npm start -- -p $PORT
+
+[Install]
+WantedBy=multi-user.target
