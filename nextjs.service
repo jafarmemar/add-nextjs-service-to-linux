@@ -4,6 +4,8 @@ After=network.target
 
 [Service]
 Type=simple
+Restart=on-failure
+RestartSec=10
 WorkingDirectory=/usr/share/nextjs-apps/$APP_FOLDER
 ExecStartPre=/usr/bin/npm install
 ExecStartPre=/usr/bin/npm run build
