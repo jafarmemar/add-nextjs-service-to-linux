@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 WorkingDirectory=/usr/share/nextjs-apps/$APP_FOLDER
 ExecStart=/usr/bin/npm start -- -p $PORT
-ExecStop=/bin/kill $MAINPID
+ExecStop=/bin/kill \$MAINPID
 KillMode=none
 
 [Install]
