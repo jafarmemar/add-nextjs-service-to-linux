@@ -6,7 +6,7 @@ main() {
       read -p "Please set up your port service: " PORT
       read -p "Please set up your Next.js app folder: " APP_FOLDER
       curl -Ls -o nextjs.service https://github.com/jafarmemar/add-nextjs-service-to-linux/raw/main/nextjs-min.service
-      PORT=$PORT APP_FOLDER=$APP_FOLDER MAINPID="$MAINPID" envsubst <nextjs.service >nextjs-$APP_FOLDER.service
+      PORT=$PORT APP_FOLDER=$APP_FOLDER MAINPID='$MAINPID' envsubst <nextjs.service >nextjs-$APP_FOLDER.service
       rm -f nextjs.service
       mv -f nextjs-$APP_FOLDER.service /etc/systemd/system/nextjs-$APP_FOLDER.service
       systemctl daemon-reload
