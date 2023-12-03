@@ -4,9 +4,10 @@ After=network.target
 
 [Service]
 Type=simple
-KillMode=none
 WorkingDirectory=/usr/share/nextjs-apps/$APP_FOLDER
 ExecStart=/usr/bin/npm start -- -p $PORT
+ExecStop=/bin/kill $MAINPID
+KillMode=none
 
 [Install]
 WantedBy=multi-user.target
